@@ -9,7 +9,7 @@
 <%= link_to "Edit", edit_question_path(@question, object: "question", form: "form"), class: "btn btn-secondary"  %> | 
 <%= link_to "Destroy", question_path(@question), class: "btn btn-danger", data: {method: :delete, confirm: 'Are you sure?'} %>
 <hr class="my-3">
-<%= render 'answer_form'%>
+<%= render 'answers/answer_form'%>
 <h2 class="mt-5">Answers</h2>
 <%@answers.each do |answer| %>
   <article class='mb-3'>
@@ -19,7 +19,7 @@
     <p>
       <%= answer.body%>
     </p>
-    <%= link_to "Edit", question_answer_path(@question, answer, object: "answer", form: "answer_form"), class: "btn btn-secondary" %> |
+    <%= link_to "Edit", edit_question_answer_path(@question, answer), class: "btn btn-secondary" %>
     <%= link_to "Delete", question_answer_path(@question, answer), class:'btn btn-danger btn-sm', data: {method: :delete, confirm: "Are you sure?"} %>
   </article>
 <%end%>

@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_question!
+  before_action :set_answer!, only: %i[edit update]
 
   def create
     @answer = @question.answers.build answer_params
@@ -13,9 +14,6 @@ class AnswersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def destroy
     answer = @question.answers.find params[:id]
     answer.destroy
@@ -23,12 +21,15 @@ class AnswersController < ApplicationController
     redirect_to question_path(@question)
   end
 
+  def edit
+  end
+
   def update
     if @answer.update answer_params
       flash[:success] = "Answer updated!"
       redirect_to question_path(@question)
     else
-      render :edit
+      render :edit_answer
     end
   end
 
@@ -36,6 +37,10 @@ class AnswersController < ApplicationController
 
   def answer_params
     params.require(:answer).permit(:body)
+  end
+
+  def set_answer!
+    @answer = @question.answers.find params[:id]
   end
 
   def set_question!
