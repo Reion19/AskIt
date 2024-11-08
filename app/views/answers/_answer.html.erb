@@ -1,0 +1,13 @@
+<%# partial of all answers %>
+<%= tag.article class: 'mb-3 card', id: dom_id(answer) do %>
+  <div class='card-body'>
+    <time datetime="<%= answer.formated_created_at %>">
+      <%= answer.formated_created_at %>
+    </time>
+    <div class="mt-2 mb-3">
+      <%= sanitize answer.body%>
+    </div>
+    <%= link_to "Edit", edit_question_answer_path(question, answer), class: "btn btn-info btn-sm" %>
+    <%= link_to "Delete", question_answer_path(question, answer), class:'btn btn-danger btn-sm', data: {method: :delete, confirm: "Are you sure?"} %>
+  </div>
+<%end%>

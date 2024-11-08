@@ -1,22 +1,23 @@
 class AnswersController < ApplicationController
+  include ActionView::RecordIdentifier
+
   before_action :set_question!
-  before_action :set_answer!, only: %i[edit update]
+  before_action :set_answer!, except: %i[create]
 
   def create
     @answer = @question.answers.build answer_params
 
     if @answer.save
       flash[:success] = "Answer created!"
-      redirect_to question_path(@question)
+      redirect_to question_path(@question, anchor: dom_id(@answer))
     else
-      @answers = Answer.order created_at: :desc
+      @answers = @question.answers.order created_at: :desc
       render 'questions/show'
     end
   end
 
   def destroy
-    answer = @question.answers.find params[:id]
-    answer.destroy
+    @answer.destroy
     flash[:success] = "Answer deleted!"
     redirect_to question_path(@question)
   end
@@ -27,9 +28,9 @@ class AnswersController < ApplicationController
   def update
     if @answer.update answer_params
       flash[:success] = "Answer updated!"
-      redirect_to question_path(@question)
+      redirect_to question_path(@question, anchor: "answer-#{@answer.id}")
     else
-      render :edit_answer
+      render :edit
     end
   end
 
