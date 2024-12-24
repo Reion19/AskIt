@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  resources :questions # the same thing as line below
-  # resources :questions, only: %i[index new edit create update destroy show]
+  resources :questions do
+    resources :answers, only: %i[create]
+  end
 
   root "pages#index"
-
-  # get "/questions", to: "questions#index"
-  # get "/questions/new", to: "questions#new"
-  # post "/questions", to: "questions#create"
-  # get "questions/:id/edit", to: "questions#edit" => will be created with resources method
 end

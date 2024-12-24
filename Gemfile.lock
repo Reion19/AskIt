@@ -95,6 +95,7 @@ GEM
     erubi (1.13.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    htmlbeautifier (1.4.3)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     io-console (0.8.0)
@@ -288,6 +289,7 @@ DEPENDENCIES
   brakeman
   cssbundling-rails
   debug
+  htmlbeautifier
   jbuilder
   jsbundling-rails
   puma (>= 5.0)
