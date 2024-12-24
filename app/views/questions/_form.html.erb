@@ -1,11 +1,20 @@
+<%= render "shared/errors", object: @question%>
 <%= form_with model: @question, data: {turbo: false} do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title, required: true, minlength: 2, placeholder: "Title" %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label" >
+      <%= f.label :title%>
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_field :title, requried: true,  placeholder: "Title", class: "form-control" %>
+    </div>
   </div>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body, required: true, minlength: 2, placeholder: "Body" %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body %>
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_area :body, requried: true,  placeholder: "Body", class: "form-control" %>
+    </div>
   </div>
-  <%= f.submit "Submit Question" %>
+  <%= f.submit "Submit Question", class: "btn btn-primary" %>
 <%end%>
