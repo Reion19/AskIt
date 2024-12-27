@@ -23,7 +23,7 @@
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "r": "^0.0.5",
-    "sass": "^1.83.0"
+    "sass": "1.32.13"
   },
   "browserslist": [
     "defaults"
