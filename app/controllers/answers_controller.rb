@@ -28,8 +28,8 @@ class AnswersController < ApplicationController
       flash[:success] = 'Answer updated!'
       redirect_to question_path(@question.id)
     else
-      @answers = Answer.order created_at: :desc
-      render 'questions/show'
+      @question.answers.order created_at: :desc
+      render :edit
     end
   end
 
