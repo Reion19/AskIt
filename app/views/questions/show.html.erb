@@ -5,16 +5,18 @@
   <%= @question.title%>
 </h1>
 
-<p class="lead my-3">
-  <%= @question.body %>
+<div class="lead my-3">
+  <%= sanitize @question.body %>
   <br>
   <time datetime="<%= @question.formated_created_at %>">
     <%= @question.formated_created_at %>
   </time>
-</p>
+</div>
 
-<%= link_to "Edit", edit_question_path(@question), class: "btn btn-primary" %>
-<%= link_to "Delete", question_path(@question), class: "btn btn-danger", data: {turbo_method: :delete, confirm: "Are you sure?"} %>
+<div>
+  <%= link_to "Edit", edit_question_path(@question), class: "btn btn-primary" %>
+  <%= link_to "Delete", question_path(@question), class: "btn btn-danger", data: {turbo_method: :delete, confirm: "Are you sure?"} %>
+</div>
 
 <hr class="my-3">
 
@@ -22,19 +24,4 @@
 
 <h2 class="mb-5">Answers</h2>
 
-<% @answers.each do |answer|  %>
-  <article class="mb-3 card">
-    <div class="card-body">
-      <section class="card-text">
-        <small><time datetime="<%= answer.formated_created_at %>">
-            <%= answer.formated_created_at %>
-          </time></small>
-        <p class="mt-2 mb-3">
-          <%= answer.body %>
-        </p>
-      </section>
-      <%= link_to "Edit", edit_question_answer_path(@question, answer), class: "btn btn-info btn-sm"%>
-      <%= link_to "Delete", question_answer_path(@question, answer), data: {turbo_method: :delete, confirm: "Are you sure?"}, class: "btn btn-danger btn-sm"%>
-    </div>
-  </article>
-<%end%>
+<%= render partial: "answers/answer", collection: @answers, as: :answer, locals: {question: @question} %>
