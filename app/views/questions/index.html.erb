@@ -1,24 +1,26 @@
-  
-  <h1 class="mb-4">Questions</h1>
+<%= currently_at "Questions" %>
 
-  <%= link_to "New question", new_question_path, class:"btn btn-primary" %>
+<% provide :page_title, 'Questions' %>
+<h1 class="mb-4">Questions</h1>
 
-  <% @questions.each do |question| %>
-    <article class="card mt-3">
-      <div class="card-body">
-        <section class="card-text">
-          <h4><%= question.title %></h2>
-          <time datetime="<%= question.formated_created_at %>">
-            <%= question.formated_created_at %>
-          </time>
-          <p class="my-2"><%= question.body %></p>
-        </section>
-        <br>
+<%= link_to "New question", new_question_path, class:"btn btn-primary" %>
 
-        <%= link_to "Show", question_path(question), class: "btn btn-primary" %>
-        <%= link_to "Edit", edit_question_path(question), class: "btn btn-secondary" %>
-        <%= link_to "Delete", question_path(question), class: "btn btn-danger", data: {turbo_method: :delete, confirm: "Are you sure?"} %>
+<% @questions.each do |question| %>
+  <article class="card mt-3">
+    <div class="card-body">
+      <section class="card-text">
+        <h4><%= question.title %></h2>
+        <time datetime="<%= question.formated_created_at %>">
+          <%= question.formated_created_at %>
+        </time>
+        <p class="my-2"><%= question.body %></p>
+      </section>
+      <br>
 
-      </div>
-    </article>
-  <%end%>
+      <%= link_to "Show", question_path(question), class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_question_path(question), class: "btn btn-secondary" %>
+      <%= link_to "Delete", question_path(question), class: "btn btn-danger", data: {turbo_method: :delete, confirm: "Are you sure?"} %>
+
+    </div>
+  </article>
+<%end%>
