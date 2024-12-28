@@ -64,4 +64,4 @@ group :development do
   gem 'ruby-lsp'
 end
 
-gem 'kaminari', '~> 1.2.2'
+gem 'pagy', '~> 9.3.3'
