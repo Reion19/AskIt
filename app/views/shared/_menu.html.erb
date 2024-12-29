@@ -9,11 +9,29 @@
 
         <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
           <% if user_signed_in? %>
-            <li>
-              <a class="nav-link px-2" href="#">
-                <%= current_user.name_or_email%>
-              </a>
+            <li class="dropdown">
+              <%= nav_tab current_user.name_or_email, "#", class: "nav-link px-2 dropdown-toggle",
+                                                            data: { "bs-toggle": "dropdown",
+                                                             current_page: current_page  } %>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to "Log Out", "#", class: 'dropdown-item' %>
+                </li>
+              </ul>
             </li>
+
+            <div class="dropdown show">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                Dropdown link
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+
           <% else%>
             <li>
               <%= nav_tab 'Sign Up', new_user_path, class: 'nav-link px-2', current_page: current_page%>
