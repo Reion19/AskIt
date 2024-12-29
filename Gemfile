@@ -66,4 +66,5 @@ end
 
 gem 'draper'
 
+gem 'importmap-rails'
 gem 'pagy', '~> 9.3.3'
