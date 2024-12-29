@@ -64,4 +64,6 @@ group :development do
   gem 'ruby-lsp'
 end
 
+gem 'draper'
+
 gem 'pagy', '~> 9.3.3'
