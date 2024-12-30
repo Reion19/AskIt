@@ -1,6 +1,6 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "./controllers"
-import * as bootstrap from "bootstrap"
-import "bootstrap/js/dist/dropdown";
-import "@popperjs/core";
+
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
+import "@popperjs/core"
