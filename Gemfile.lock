@@ -350,7 +350,7 @@ DEPENDENCIES
   draper
   faker (~> 3.5.1)
   htmlbeautifier
-  importmap-rails
+  importmap-rails (~> 2.1)
   jbuilder
   jsbundling-rails
   pagy (~> 9.3.3)
