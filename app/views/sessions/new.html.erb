@@ -4,7 +4,7 @@
 
 <%= render "shared/errors", object: @user%>
 
-<%= form_with url: sessions_path, data: {turbo: false} do |f| %>
+<%= form_with url: session_path, data: {turbo: false} do |f| %>
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label" >
       <%= f.label :email%>
