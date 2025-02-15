@@ -12,8 +12,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#index"
 
-
-  get "questions", to: "questions#index"
-  get "questions/new", to: "questions#new"
-  post "questions", to: "questions#create"
+  resources :questions
 end
