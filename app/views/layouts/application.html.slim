@@ -2,6 +2,7 @@ doctype html
 html
   head
     title= content_for(:title) || "Ask It" 
+    meta chareset="utf-8"
     meta name="viewport" content="width=device-width,initial-scale=1"
     meta name="apple-mobile-web-app-capable" content="yes"
     = csrf_meta_tags 
@@ -17,6 +18,9 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module" 
 
   body
-    nav 
-      = render "shared/menu"
-    = yield 
+    header.p-3.bg-dark.text-white
+      .container 
+        nav.d-flex.flex-wrap.align-items-center.justify-content-center.justify.content-lg.start
+          = render "shared/menu"
+    main.container.mt-3 
+      = yield 
