@@ -1,0 +1,6 @@
+= form_with model: @question, data: {turbo: false} do |f| 
+    div
+        = f.text_field :title, required: true, minlength: 2, placeholder: "Title"
+    div  
+        = f.text_area :body, required: true, minlength: 2, placeholder: "Body of question"
+    = f.submit "submit question"
