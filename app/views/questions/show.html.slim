@@ -25,13 +25,14 @@ h2 Write your answer
 
   = f.submit "Submit answer", class: "btn btn-primary"
 
-hr.my-3
-
-h2 Answers
+h2.my-3 Answers
 
 - @answers.each do |answer| 
-  small 
-    time datetime = answer.formatted_created_at
-      = answer.formatted_created_at
+  . 
+    small 
+      time datetime = answer.formatted_created_at
+        = answer.formatted_created_at
+      p.lead.my-3 = answer.body 
 
-  p.lead.my-3 = answer.body 
+      = link_to "Delete", question_answer_path(@question, answer), class: "btn btn-danger btn-xs mb-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }
+  hr
