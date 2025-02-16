@@ -1,5 +1,7 @@
 h1.mb-4 Questions
 
+= link_to "New question", new_question_path, class: "btn btn-primary btn-lg mb-4"
+
 - @questions.each do |question| 
   article.card
     .card-body 
