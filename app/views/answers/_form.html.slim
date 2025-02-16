@@ -1,0 +1,10 @@
+= render "shared/errors", object: @answer
+
+= form_with model: [@question, @answer], data: {turbo: false} do |f| 
+  .mb-3.row 
+    .col-sm-2.col-form-label
+      = f.label :body
+    .col-sm-10 
+      = f.text_area :body, required: true, minlength: 5, placeholder: "Body", class: "form-control"
+
+  = f.submit "Submit answer", class: "btn btn-primary"
