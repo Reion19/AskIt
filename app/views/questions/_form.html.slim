@@ -1,10 +1,16 @@
+= render "shared/errors", object: @question
+        
 = form_with model: @question, data: {turbo: false} do |f| 
   .mb-3.row 
-    = f.label :title, class: "col-sm-2 col-form-label"
+    .col-sm-2.col-form-label
+      = f.label :title
     .col-sm-10 
       = f.text_field :title, required: true, minlength: 2, placeholder: "Title", class: "form-control"
-    .mb-3.row 
-    = f.label :body, class: "col-sm-2 col-form-label"
+
+  .mb-3.row 
+    .col-sm-2.col-form-label
+      = f.label :body
     .col-sm-10 
       = f.text_area :body, required: true, minlength: 2, placeholder: "Body of question", class: "form-control"
+
   = f.submit "submit question", class: "btn btn-primary"
