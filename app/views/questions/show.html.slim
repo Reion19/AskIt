@@ -24,3 +24,14 @@ h2 Write your answer
       = f.text_area :body, required: true, minlength: 2, placeholder: "Body", class: "form-control"
 
   = f.submit "Submit answer", class: "btn btn-primary"
+
+hr.my-3
+
+h2 Answers
+
+- @answers.each do |answer| 
+  small 
+    time datetime = answer.formatted_created_at
+      = answer.formatted_created_at
+
+  p.lead.my-3 = answer.body 
