@@ -16,7 +16,7 @@ h1.mb-4 Questions
 
       = link_to "Show", question_path(question), class: "btn btn-primary"
       = link_to "Edit", edit_question_path(question), class: "btn btn-secondary mx-1"
-      = link_to "Delete", question_path(question), data: {turbo_method: :delete, confirm: true}, class: "btn btn-danger"
+      = link_to "Delete", question_path(question), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"
 
 
 
