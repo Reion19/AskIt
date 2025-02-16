@@ -1,5 +1,5 @@
 - if object.errors.full_messages.any? 
   .alert.alert-danger 
     ul.mb-0
-      - @question.errors.full_messages.each do |msg| 
+      - object.errors.full_messages.each do |msg| 
         li = msg 
