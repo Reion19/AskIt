@@ -7,4 +7,8 @@ module ApplicationHelper
       base_title
     end
   end
+
+  def currently_at
+    render partial: "shared/menu"
+  end
 end
