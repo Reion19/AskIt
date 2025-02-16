@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_question!, only: %i[create edit update destroy]
-  before_action :set_answer!, only: %i[create destroy edit update]
+  before_action :set_answer!, only: %i[destroy edit update]
 
   def create
     @answer = @question.answers.build(answer_params)

@@ -1,3 +1,5 @@
+= provide :page_title, "#{@question.title}"
+
 h1.mb-4 = @question.title
 
 small 
@@ -19,12 +21,13 @@ h2 Write your answer
 h2.my-3 Answers
 
 - @answers.each do |answer| 
-  . 
-    small 
-      time datetime = answer.formatted_created_at
-        = answer.formatted_created_at
-      p.lead.my-3 = answer.body 
-      = link_to "Edit", edit_question_answer_path(@question, answer), class: "btn btn-secondary btn-xs mb-3 mx-2"
+  article.mb-3.card 
+    .card-body
+      section.card-texft
+        small 
+          time datetime = answer.formatted_created_at
+            = answer.formatted_created_at
+        p.mt-2.mb-3 = answer.body 
+      = link_to "Edit", edit_question_answer_path(@question, answer), class: "btn btn-info btn-xs mb-3 mx-2"
 
       = link_to "Delete", question_answer_path(@question, answer), class: "btn btn-danger btn-xs mb-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }
-  hr
