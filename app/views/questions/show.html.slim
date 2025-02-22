@@ -5,9 +5,9 @@ h1.mb-4 = @question.title
 
 small 
   time datetime = @question.formatted_created_at
-    =@question.formatted_created_at
+    = sanitize @question.formatted_created_at
 
-p.lead.my-3 = @question.body 
+div.lead.my-3 = @question.body 
 
 = link_to "Show", question_path(@question), class: "btn btn-primary"
 = link_to "Edit", edit_question_path(@question), class: "btn btn-secondary mx-1"

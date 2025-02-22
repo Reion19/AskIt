@@ -15,7 +15,7 @@ h1.mb-4 Questions
         small = question.formatted_created_at
 
         p.my-2
-          = question.body
+          = strip_tags question.body
 
       = link_to "Show", question_path(question), class: "btn btn-primary"
       = link_to "Edit", edit_question_path(question), class: "btn btn-secondary mx-1"
