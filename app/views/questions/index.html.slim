@@ -5,6 +5,8 @@ h1.mb-4 Questions
 
 = link_to "New question", new_question_path, class: "btn btn-primary btn-lg mb-4"
 
+== pagy_bootstrap_nav @pagy
+
 - @questions.each do |question| 
   article.card.mb-3
     .card-body 
@@ -21,5 +23,4 @@ h1.mb-4 Questions
       = link_to "Edit", edit_question_path(question), class: "btn btn-secondary mx-1"
       = link_to "Delete", question_path(question), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"
 
-
-
+== pagy_bootstrap_nav @pagy
