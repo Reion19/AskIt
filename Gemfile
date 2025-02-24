@@ -56,3 +56,5 @@ end
 gem "slim-rails", "~> 3.7"
 
 gem "slim", "~> 5.2"
+
+gem "faker", "~> 3.5"
