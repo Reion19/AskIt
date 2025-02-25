@@ -3,4 +3,5 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   include ErrorHandling
   include Pagy::Backend
+  include Authenticatable
 end
