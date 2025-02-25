@@ -1,0 +1,28 @@
+= render "shared/errors", object: @user
+        
+= form_with model: @user, data: {turbo: false} do |f| 
+  .mb-3.row 
+    .col-sm-2.col-form-label
+      = f.label :email
+    .col-sm-10 
+      = f.email_field :email, required: true, minlength: 2, placeholder: "email@example.com", class: "form-control form-control-lg"
+
+  .mb-3.row 
+    .col-sm-2.col-form-label
+      = f.label :name
+    .col-sm-10 
+      = f.text_field :name, required: true, minlength: 2, placeholder: "Name", class: "form-control form-control-lg"
+
+  .mb-3.row 
+    .col-sm-2.col-form-label
+      = f.label :password
+    .col-sm-10 
+      = f.password_field :password, required: true, minlength: 2, class: "form-control form-control-lg"
+
+  .mb-3.row 
+    .col-sm-2.col-form-label
+      = f.label :password_confirmation
+    .col-sm-10 
+      = f.password_field :password_confirmation, required: true, minlength: 2, class: "form-control form-control-lg"
+
+  = f.submit "Register", class: "btn btn-primary"
